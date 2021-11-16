@@ -8,12 +8,14 @@ fc_tx = 83.5e9/1e6; %MHz
 G_ant_tx = 30; % dB
 bitRate = 100e6;
 bitsPerFrame = 300;
-
+attn_rain = 2; % dB
+attn_atm = 1.18;% See https://propagation.ece.gatech.edu/ECE6390/project/Fall2012/Team09/Team9GeoSatTech_website_FINAL/SatCom%20website/atmosphericAttenuation.html
 %Reissian Channel
 pathDelays = [1e-6, 2e-6, 4e-6, 8e-6];
 AverageGains = [0, -6, -12, -18];
 LOSDopplerShift = 0;
 Kfactor = 10;
+
 % Receive
 
 G_ant_rx = 40; % dB
@@ -36,3 +38,11 @@ v = 3336.8; %m/s
 lambda_tx = 3e8/(fc_tx*1e6);
 fd = v/lambda_tx;
 maxDoppler = fd/(fc_tx*1e6);
+
+% Coverage
+
+Re = 6378;
+H = R-Re;
+HPBW = 0.8*pi/180;
+
+covS = 2*H*tan(HPBW/2);
