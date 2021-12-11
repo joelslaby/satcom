@@ -6,9 +6,9 @@ Fs_tx = 1e6; % Hz
 Ts_tx = 1/Fs_tx; % s
 R = 35768; % km
 fc_tx = 83.5e9/1e6;
-G_ant_tx = 35; % dB
-bitRate = 10e6;
-bitsPerFrame = 2;
+G_ant_tx = 25; % dB
+bitRate = 5e6;
+bitsPerFrame = 32;
 attn_rain = 0; % dB
 attn_atm = 1.18;% See https://propagation.ece.gatech.edu/ECE6390/project/Fall2012/Team09/Team9GeoSatTech_website_FINAL/SatCom%20website/atmosphericAttenuation.html
 %Reissian Channel
@@ -31,7 +31,7 @@ G_lpf_rx = 10^(-1.6/10);
 G_bpf_rx2 = 10^(-0.6/10);
 G_hpa_rx2 = 10^(35/10);
 G_mix2_rx = 10^(-8/10);
-
+fc_tx = 83.5e9/1e6;
 
 v = 3336.8; %m/s
 
